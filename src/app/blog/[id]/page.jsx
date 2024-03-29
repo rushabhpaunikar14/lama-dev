@@ -16,6 +16,8 @@ async function getData(id) {
 }
 
 
+
+
 export async function generateMetadata({ params }) {
 
   const post = await getData(params.id)

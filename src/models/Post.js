@@ -29,4 +29,14 @@ const postSchema = new Schema({
 {timestamps:true}
 );
 
-export default mongoose.model("Post", postSchema);
+let Post;
+
+try {
+    // Try to retrieve an existing model to prevent recompilation
+    Post = mongoose.model("Post");
+} catch (error) {
+    // If model doesn't exist, create and export it
+    Post = mongoose.model("Post", postSchema);
+}
+
+export default Post;
